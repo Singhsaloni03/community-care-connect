@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Helping Hands, Changing Lives">
+    <meta name="keywords" content="donation, charity, household items, beggars, temples">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXOU6k0a/RWepft0tn6nW8eNjipmMcbSIlA5jxl+OGuz3TVfHX3gsa6tWfKfAQ/GLcFqk0jA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Donation Web Application</title>
+</head>
+<body>
+    <header>
+        <h1>Community Care Connect</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#requests">Requests</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#" id="loginButton">Login</a></li>
+                <li><a href="#" id="registerButton">Register</a></li> <!-- Register option -->
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero bg-image">
+        <div class="content">
+            <h2>Let's spread happiness</h2>
+            <p>We deliver your donation to right place</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </section>
+
+    <section id="donate">
+        <div class="content">
+            <h2>Donate Items</h2>
+            <form id="donationForm">
+                <label for="itemName">Item Name: <i class="fas fa-info-circle" title="Name of the item you are donating"></i></label>
+                <input type="text" id="itemName" name="itemName" required aria-required="true">
+
+                <label for="itemDescription">Item Description: <i class="fas fa-info-circle" title="Brief description of the item"></i></label>
+                <textarea id="itemDescription" name="itemDescription" required aria-required="true"></textarea>
+
+                <label for="itemLocation">Location: <i class="fas fa-info-circle" title="Location where the item is available"></i></label>
+                <input type="text" id="itemLocation" name="itemLocation" required aria-required="true">
+
+                <button type="submit">Submit Donation</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="requests">
+        <div class="content">
+            <h2>Donation Requests</h2>
+            <p>Here you can view the requests for donations.</p> <!-- Placeholder content -->
+
+            <table id="donationTable">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Donation requests will be dynamically populated here -->
+            </tbody>
+        </table>
+            
+        </div>
+    </section>
+
+    <section id="volunteer">
+        <div class="content">
+            <h2>Volunteer Opportunities</h2>
+            <p>Explore volunteer opportunities and get involved in helping others.</p> <!-- Placeholder content -->
+
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="content">
+            <h2>Community Feedback and Ratings</h2>
+            <p>Provide feedback and ratings to help improve our community.</p> <!-- Placeholder content -->
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required aria-required="true">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required aria-required="true">
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Registration modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="registerUsername">Username:</label>
+                <input type="text" id="registerUsername" name="registerUsername" required aria-required="true">
+
+                <label for="registerPassword">Password:</label>
+                <input type="password" id="registerPassword" name="registerPassword" required aria-required="true">
+
+                <label for="registerPhone">Phone Number:</label> <!-- Added phone number field -->
+                <input type="text" id="registerPhone" name="registerPhone" required aria-required="true">
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Donation Web Application. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Get the modal
+        var registerModal = document.getElementById('registerModal');
+
+        // Get the button that opens the modal
+        var registerButton = document.getElementById("registerButton");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[1];
+
+        // When the user clicks on the button, open the modal
+        registerButton.onclick = function() {
+            registerModal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            registerModal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == registerModal) {
+                registerModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
